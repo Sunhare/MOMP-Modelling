@@ -19,7 +19,7 @@ env = environ()
 
 ############### INPUT PARAMETERS ##################
 optimization = 'MD'                                # type of optimization: CG / MD
-input_pdb_file = '3dBB_trimer_fit_308.pdb'         # input model for optimization
+input_pdb_file = '3dBB_trimer_fit_308_out.pdb'         # input model for optimization
 code = '3DBB'                                      # 4 letter code of the structure          
 em_map_file = '308.mrc'                            # name of EM density map (mrc)
 format='MRC'                                       # map format: MRC or XPLOR
@@ -35,7 +35,7 @@ num_of_runs = 1                                    # number of flex-em CG runs
 num_of_iter = 5                                    # number of iterations in each MD run (default=4) 
           				
 #MOST OF THE PROBLEMS ARE WITH THIS FILE
-rigid_filename = '3dBB_rigid_308.txt'            # rigid bodies file name #AKE
+rigid_filename = '3dBB_rigid_308_out.txt'            # rigid bodies file name #AKE
 
 
 
