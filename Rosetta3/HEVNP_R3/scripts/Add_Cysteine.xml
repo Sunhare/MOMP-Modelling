@@ -1,0 +1,32 @@
+<!-- 
+> $ROSETTA3/bin/rosetta_scripts.default.macosclangrelease @inputs/hevnp_cysteine_flags
+
+~/Downloads/rosetta_src_2018.33.60351_bundle//main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a w -i Dhivx -p 2zzq_sym.pdb
+-->
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <!-- Need to add symmetry in the future -->
+        <ScoreFunction name="r15" weights="ref2015" />
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <True name="full_pose" />
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+        <!-- I need task operations that:
+            1. Don't touch the body
+            2. Do redesign residue 573
+         -->
+        <ReadResfile name="add_cys" filename="inputs/add_cys_resfile.txt" selector="full_pose" />
+    </TASKOPERATIONS>
+    <FILTERS>
+    </FILTERS>
+    <MOVERS>
+       <PackRotamersMover name="pack1" scorefxn="r15" task_operations="add_cys" />
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="pack1" />
+    </PROTOCOLS>
+    <OUTPUT scorefxn="r15" />
+</ROSETTASCRIPTS>
