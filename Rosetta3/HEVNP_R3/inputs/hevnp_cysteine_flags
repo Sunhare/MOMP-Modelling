@@ -3,4 +3,4 @@
 # -out:file:silent scoring.silent
 -out:path:all outputs/
 -out:prefix cys_added_
--nstruct 2
+-nstruct 1
