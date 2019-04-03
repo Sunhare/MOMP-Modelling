@@ -1,0 +1,48 @@
+<!-- 
+To run this file: Be in the HEVNP_R3/ directory
+$ROSETTA3/bin/rosetta_scripts.default.macosclangrelease @inputs/hevnp_cysteine_flags
+==========
+Trial Symdef File: (C3 for 5ldv)
+~/Downloads/rosetta_src_2018.33.60351_bundle//main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i B -p inputs/5ldv_sym.pdb > C3_5ldv.symdef
+Symdef File (IN PROGRESS) I_n for 2zzq
+~/Downloads/rosetta_src_2018.33.60351_bundle//main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i w P H -p inputs/2zzq_sym.pdb > Icos_2zzq.symdef
+Finds 50 subunitss
+How do I find 60 subunits?
+
+Symdef file C2 for 2zzq
+~/Downloads/rosetta_src_2018.33.60351_bundle//main/source/src/apps/public/symmetry/make_symmdef_file.pl -m NCS -a A -i F -p inputs/2zzq_sym.pdb > Dimer_2zzq.symdef
+========
+
+Stepwise Monte Carlo Sampling for VD4
+
+
+-->
+<ROSETTASCRIPTS>
+    <SCOREFXNS>
+        <ScoreFunction name="r15_sym" weights="ref2015" symmetric="true" />
+    </SCOREFXNS>
+    <RESIDUE_SELECTORS>
+        <True name="full_pose" />
+    </RESIDUE_SELECTORS>
+    <TASKOPERATIONS>
+        <ReadResfile name="add_cys" filename="inputs/add_cys_resfile.txt" selector="full_pose" />
+        <RestrictToRepacking name="nodesign" />
+    </TASKOPERATIONS>
+    <FILTERS>
+        <!-- <ScoreType name="total_score" scorefxn="r15" score_type="total_score" threshold="0" /> -->
+    </FILTERS>
+    <MOVERS>
+        <SetupForSymmetry name="dimer_sym" definition="Dimer_2zzq.symdef" />
+        <SymPackRotamersMover name="symm_pack" scorefxn="r15_sym" task_operations="add_cys" />
+        <SymMinMover name="symm_min" scorefxn="r15_sym" bb="false" chi="true" jump="ALL" />
+    </MOVERS>
+    <APPLY_TO_POSE>
+    </APPLY_TO_POSE>
+    <PROTOCOLS>
+        <Add mover="dimer_sym" />
+        <Add mover="symm_pack" />
+        <Add mover="symm_min" />
+
+    </PROTOCOLS>
+    <OUTPUT scorefxn="r15_sym" />
+</ROSETTASCRIPTS>

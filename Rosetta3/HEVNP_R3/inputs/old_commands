@@ -1,5 +1,0 @@
-#This command just changes a single residue
-/Users/bardia/Downloads/rosetta_src_2018.33.60351_bundle/main/source/bin/fixbb.default.macosclangrelease -in:file:s inputs/2zzq.pdb -resfile inputs/resfile.txt -nstruct 1
-
-
-

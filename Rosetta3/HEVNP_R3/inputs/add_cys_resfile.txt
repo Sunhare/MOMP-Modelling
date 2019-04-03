@@ -1,5 +1,0 @@
-NATRO # default command that applies to everything without a non- default setting; do not repack
-
-start
-
-573 A PIKAA C

@@ -1,0 +1,23 @@
+#To run this function:
+#$ROSETTA3/bin/stepwise.macosclangrelease @inputs/VD$_MC_flags
+#To extract pdbs
+#$ROSETTA3/bin/extract_pdbs.default.macosclangrelease -in:file:silent default.out
+
+#Inputs
+-in:file:fasta inputs/VD4_epitope.fasta
+-score:weights /Users/bardia/Downloads/rosetta_src_2018.33.60351_bundle/main/database/scoring/weights/stepwise/protein/protein_res_level_energy.wts
+
+#Outputs
+# -out:file:silent VD4_SWM.out
+
+#Production commands
+-cycles 100
+-nstruct 1
+-monte_carlo:submotif_frequency 0.0
+#Constraints
+#-stepwise:monte_carlo:full_model_constraints
+# -full_model:disulfide_res 1,15
+#Make a movie?
+-stepwise:monte_carlo:make_movie true
+
+

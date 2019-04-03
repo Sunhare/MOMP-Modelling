@@ -1,0 +1,11 @@
+SEQUENCE: CMTTWNPTISGSGIC
+SCORE:     score     fa_atr     fa_rep     fa_sol    fa_intra_rep    pro_close    fa_pair    hbond_sr_bb    hbond_lr_bb    hbond_bb_sc    hbond_sc    dslf_ss_dst    dslf_cs_ang    dslf_ss_dih    dslf_ca_dih    atom_pair_constraint    coordinate_constraint       rama      omega     fa_dun    p_aa_pp        ref    free_side_chain    missing    other_pose    loop_close description
+REMARK BINARY SILENTFILE    FULL_MODEL_PARAMETERS  FULL_SEQUENCE CMTTWNPTISGSGIC  CONVENTIONAL_RES_CHAIN 1-15  DOCK_DOMAIN 1-15  SAMPLE 1-15  WORKING 1-15
+SCORE:    -2.479     -2.497      0.288      2.654           0.028        0.000      0.011          0.000          0.000         -2.457       0.000          0.000          0.000          0.000          0.000                   0.000                    0.000     -0.569     -0.307      0.398     -1.457      3.430             -2.000         11         0.000         0.000    S_000001
+RES_NUM 8-11 S_000001
+FOLD_TREE  EDGE 1 2 -1  EDGE 2 3 -1  EDGE 3 4 -1  S_000001
+ANNOTATED_SEQUENCE: T[THR:Virtual_Protein_SideChain:N_acetylated]I[ILE:Virtual_Protein_SideChain]SG[GLY:C_methylamidated] S_000001
+LqfQ7+uFgSBcV8l8PzKAm+wFOTAMKSG1PwE/H/iZZj+LHDyiPKCH7/+t9u+7IDCpPsVQ39+WQdB8Y6XDQaaSX/i2pOC8DovGQvCzU/ATsyAMqfKFQd8Ql/YEW+AsxgVov3G5o+EfqmBcb225vovPBAZKkAC8O6prPttaG/6fydB8bM53vpD8KABQdPCsI/Ntv7LrLANviiBsD0w4PjDOv/ME7YCcJHv1PJdqm/WFvyB8+w64PdcKd/4oni/banD8PMct4/MbIOAMiuL0v S_000001
+LdZQA9m//a6bX3NwvPuJT/mFD58TmUr5vbSHp/aodk5jRbQCwwI4/+CuiL6rxLfFwb+1H9k/9//TwaO7vSoz1+gNUmAE4ZAUvOQTO/yB7AB0Ax9AwdHNu/0aStBkU3pgv2F479OJT6BkyIeBwzbgc/iZglAkYv3EwZA+0/COlRB0SU69vDLP8+aKp/AkT9DuPRRoU/QCao/TM+ixPFfO1/IulCCUtK21PqUvFA15sUBUQ/ZxvjSlh/EKmQCkGo7zvxOje/EBWL6LP9zwvnre1/mQp49j7WsxvVSGe/AZAg/zRIS/v S_000001
+LlSWJAHUc26T+oODwN52SAn/y12bd7HIwaDEMAniCO9DfLcKwkdvLA7t9/6jkzvMwYkhlA79BN3LDxyHw2hlpAbyEa+T4nfHwvzzSAr32G9TixaAwXvVNAbcMN+rKRiIwNn7oAXgNc87e7nJwt83nAn0so8bwjPEwEzHmAjwiO/zw9eEw S_000001
+Lp7oGAvSPDAEt/zJwM3QBAjVLCBEG52LwW0VUATeU7BkZqfMwziOSAveqdC0u95NwoFfjADe0jB0okcLwNePtAz2YKCUUK6LwQvOGAfksUAk/HvHwW9yn/WERpB0Y/KLwEPE4/a4XhA0KmqNwqS0jAb7quAEvLTKw S_000001
