@@ -1,0 +1,8 @@
+-in:file:s inputs/VD4_2zzq_combined_0001.pdb
+-parser:protocol scripts/HEVNP_VD4_SimAnneal.xml 
+
+
+-out:path:all outputs/
+-out:prefix vd4_mc_
+-out:file:silent silent.out
+-nstruct 3
