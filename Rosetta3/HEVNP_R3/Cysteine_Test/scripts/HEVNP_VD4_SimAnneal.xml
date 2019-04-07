@@ -5,6 +5,9 @@ $ROSETTA3/bin/rosetta_scripts.default.macosclangrelease @inputs/hevnp_vd4_mc_fla
 
 To extract
  ~/Downloads/rosetta_src_2018.33.60351_bundle/main/source/bin/extract_pdbs.default.macosclangrelease -in:file:silent outputs/silent.out
+
+ 
+
  -->
 <ROSETTASCRIPTS>
     <SCOREFXNS>
@@ -16,20 +19,24 @@ To extract
         <Index name="vd4_selector" resnums="484-498"/>
     </RESIDUE_SELECTORS>
     <TASKOPERATIONS>
+        <RestrictToRepacking name="repackonly" />
     </TASKOPERATIONS>
     <FILTERS>
     </FILTERS>
     <MOVERS>
         <!-- <SetupForSymmetry name="dimer_sym" definition="Dimer_2zzq.symdef" /> -->
 
+        <ConstraintSetMover name="disulfides_cst" add_constraints="true" cst_file="inputs/hevnp_vd4_constraints.cst"/>
+
+
         <AtomTree name="set_up_foldtree" fold_tree_file="inputs/hevnp_vd4.ft" />
 
         <PDBTrajectoryRecorder name="pdb_traj_recorder" stride="1" filename="traj.pdb" cumulate_jobs="0" cumulate_replicas="0" />
         <PDBTrajectoryRecorder name="pdb_traj_recorder_accepted" stride="1" filename="traj_accepted.pdb" cumulate_jobs="0" cumulate_replicas="0" />
 
-        <Small name="small_mover" scorefxn="r15" temperature="0.5" nmoves="50" angle_max="10.0" preserve_detailed_balance="0" residue_selector="vd4_selector"/>
-        <PackRotamersMover name="repack_mover" scorefxn="r15" />
-        <MinMover name="sidechain_min" scorefxn="r15" tolerance="0.01" bb="false" chi="true" jump="0" />   
+        <Small name="small_mover" scorefxn="r15" temperature="1.5" nmoves="50" angle_max="10.0" preserve_detailed_balance="0" residue_selector="vd4_selector"/>
+        <PackRotamersMover name="repack_mover" scorefxn="r15" task_operations="repackonly" />
+        <MinMover name="sidechain_min" scorefxn="r15" tolerance="0.01" bb="true" chi="true" jump="1" />   
         <RigidBodyPerturbNoCenter name="shift_peptide_a_tiny_bit" rot_mag="0" trans_mag="0.2" />     
         
         <ParsedProtocol name="monte_carlo_move" mode="sequence" >
@@ -41,14 +48,18 @@ To extract
             <Add mover_name="pdb_traj_recorder" />
         </ParsedProtocol>
 
-        <GenericMonteCarlo name="gmc_mover" mover_name="monte_carlo_move" scorefxn_name="r15" sample_type="low" temperature="0.8" trials="15" drift="1" preapply="false" recover_low="1" />
+        <GenericMonteCarlo name="gmc_mover" mover_name="monte_carlo_move" scorefxn_name="r15" sample_type="low" temperature="0.8" trials="50" drift="1" preapply="false" recover_low="1" />
+
+    
     </MOVERS>
     <APPLY_TO_POSE>
     </APPLY_TO_POSE>
     <PROTOCOLS>
         <!-- <Add mover="dimer_sym" /> -->
+        <Add mover="disulfides_cst" />
         <Add mover="set_up_foldtree" />
         <Add mover="gmc_mover" />
+        <!-- <Add mover="optimize_pose" /> -->
     </PROTOCOLS>
     <OUTPUT scorefxn="r15" />
 </ROSETTASCRIPTS>
