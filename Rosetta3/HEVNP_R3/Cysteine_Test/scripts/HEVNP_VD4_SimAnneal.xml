@@ -34,9 +34,9 @@ To extract
         <PDBTrajectoryRecorder name="pdb_traj_recorder" stride="1" filename="traj.pdb" cumulate_jobs="0" cumulate_replicas="0" />
         <PDBTrajectoryRecorder name="pdb_traj_recorder_accepted" stride="1" filename="traj_accepted.pdb" cumulate_jobs="0" cumulate_replicas="0" />
 
-        <Small name="small_mover" scorefxn="r15" temperature="1.5" nmoves="50" angle_max="10.0" preserve_detailed_balance="0" residue_selector="vd4_selector"/>
+        <Small name="small_mover" scorefxn="r15" temperature="30" nmoves="50" angle_max="10.0" preserve_detailed_balance="0" residue_selector="vd4_selector"/>
         <PackRotamersMover name="repack_mover" scorefxn="r15" task_operations="repackonly" />
-        <MinMover name="sidechain_min" scorefxn="r15" tolerance="0.01" bb="true" chi="true" jump="1" />   
+        <MinMover name="sidechain_min" scorefxn="r15" tolerance="0.01" bb="false" chi="true" jump="1" />   
         <RigidBodyPerturbNoCenter name="shift_peptide_a_tiny_bit" rot_mag="0" trans_mag="0.2" />     
         
         <ParsedProtocol name="monte_carlo_move" mode="sequence" >
@@ -50,13 +50,14 @@ To extract
 
         <GenericMonteCarlo name="gmc_mover" mover_name="monte_carlo_move" scorefxn_name="r15" sample_type="low" temperature="0.8" trials="50" drift="1" preapply="false" recover_low="1" />
 
+
     
     </MOVERS>
     <APPLY_TO_POSE>
     </APPLY_TO_POSE>
     <PROTOCOLS>
         <!-- <Add mover="dimer_sym" /> -->
-        <Add mover="disulfides_cst" />
+        <!-- <Add mover="disulfides_cst" /> -->
         <Add mover="set_up_foldtree" />
         <Add mover="gmc_mover" />
         <!-- <Add mover="optimize_pose" /> -->

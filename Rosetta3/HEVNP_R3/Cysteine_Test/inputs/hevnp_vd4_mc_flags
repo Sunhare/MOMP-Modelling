@@ -7,4 +7,18 @@
 -out:file:silent silent.out
 -nstruct 1
 
--constraints:cst_fa_weight 20
+# -constraints:atom_pair_constraints 20
+-constraints:cst_fa_file inputs/hevnp_vd4_constraints.cst
+-constraints:cst_fa_weight 10
+
+
+
+
+# <FastRelax name="relax" />
+# <PackRotamersMover name="repack" task_operations="repackonly"/>
+# <GenericSimulatedAnnealer name="optimize_pose"
+# mover_name="relax" trials="50"
+# periodic_mover="repack" eval_period="5" history="10" 
+# bolz_rank="1" recover_low="1" preapply="0" drift="1" 
+# checkpoint_file="mc" keep_checkpoint_file="1" temperature="3" sample_type="low" > 
+# </GenericSimulatedAnnealer>
