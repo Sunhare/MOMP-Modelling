@@ -1,6 +1,0 @@
--in:file:s inputs/2zzq.pdb 
--parser:protocol scripts/Add_Cysteine.xml 
-# -out:file:silent scoring.silent
--out:path:all outputs/
--out:prefix cys_added_
--nstruct 1
