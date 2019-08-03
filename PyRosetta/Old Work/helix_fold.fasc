@@ -1,0 +1,3 @@
+{"pdb_name": "helix_fold", "decoy": "helix_fold_0.pdb", "filename": "helix_fold_0.pdb", "nstruct": 3, "hbond_sr_bb": 0.0, "total_score": 0.08103066267353164, "vdw": 0.08103066267353164}
+{"pdb_name": "helix_fold", "decoy": "helix_fold_2.pdb", "filename": "helix_fold_2.pdb", "nstruct": 3, "hbond_sr_bb": -0.534668395368358, "total_score": -0.4690000408988117, "vdw": 0.06566835446954626}
+{"pdb_name": "helix_fold", "decoy": "helix_fold_1.pdb", "filename": "helix_fold_1.pdb", "nstruct": 3, "hbond_sr_bb": -2.325533884085548, "total_score": -1.380369397554527, "vdw": 0.9451644865310208}
